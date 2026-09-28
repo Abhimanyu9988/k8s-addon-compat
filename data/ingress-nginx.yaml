@@ -44,6 +44,9 @@ releases:
   discrepancies: []
   notes:
   - kind: chart-allows-below-documented-minimum
+    constraint: '>=1.21.0-0'
+    documented_minimum: '1.31'
+    allows: '1.30'
     detail: Chart 4.15.1 kubeVersion '>=1.21.0-0' allows install on 1.30, below the
       documented minimum 1.31.
 - version: 1.15.0
@@ -82,6 +85,9 @@ releases:
   discrepancies: []
   notes:
   - kind: chart-allows-below-documented-minimum
+    constraint: '>=1.21.0-0'
+    documented_minimum: '1.31'
+    allows: '1.30'
     detail: Chart 4.15.0 kubeVersion '>=1.21.0-0' allows install on 1.30, below the
       documented minimum 1.31.
 - version: 1.14.5
@@ -120,6 +126,9 @@ releases:
   discrepancies: []
   notes:
   - kind: chart-allows-below-documented-minimum
+    constraint: '>=1.21.0-0'
+    documented_minimum: '1.30'
+    allows: '1.29'
     detail: Chart 4.14.5 kubeVersion '>=1.21.0-0' allows install on 1.29, below the
       documented minimum 1.30.
 - version: 1.14.4
@@ -158,6 +167,9 @@ releases:
   discrepancies: []
   notes:
   - kind: chart-allows-below-documented-minimum
+    constraint: '>=1.21.0-0'
+    documented_minimum: '1.30'
+    allows: '1.29'
     detail: Chart 4.14.4 kubeVersion '>=1.21.0-0' allows install on 1.29, below the
       documented minimum 1.30.
 - version: 1.14.3
@@ -196,6 +208,9 @@ releases:
   discrepancies: []
   notes:
   - kind: chart-allows-below-documented-minimum
+    constraint: '>=1.21.0-0'
+    documented_minimum: '1.30'
+    allows: '1.29'
     detail: Chart 4.14.3 kubeVersion '>=1.21.0-0' allows install on 1.29, below the
       documented minimum 1.30.
 - version: 1.14.2
@@ -234,5 +249,8 @@ releases:
   discrepancies: []
   notes:
   - kind: chart-allows-below-documented-minimum
+    constraint: '>=1.21.0-0'
+    documented_minimum: '1.30'
+    allows: '1.29'
     detail: Chart 4.14.2 kubeVersion '>=1.21.0-0' allows install on 1.29, below the
       documented minimum 1.30.

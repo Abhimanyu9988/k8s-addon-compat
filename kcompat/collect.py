@@ -94,6 +94,9 @@ def check_release(claims: list[dp.DocClaim], constraint: Optional[ConstraintSet]
         if constraint.allows_minor(below):
             soft.append({
                 "kind": "chart-allows-below-documented-minimum",
+                "constraint": constraint_raw,
+                "documented_minimum": minor_str(lowest_claimed),
+                "allows": minor_str(below),
                 "detail": (f"Chart {chart_version} kubeVersion '{constraint_raw}' allows install on "
                            f"{minor_str(below)}, below the documented minimum {minor_str(lowest_claimed)}."),
             })

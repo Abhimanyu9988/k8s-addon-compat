@@ -20,8 +20,10 @@ class Site(unittest.TestCase):
         self.assertIn("chart blocks", page)
         self.assertIn("Retired:", page)
         self.assertIn("(OpenShift 4.20 → 4.22)", page)
-        # the "allows below minimum" note appears once per add-on, not on every release
-        self.assertEqual(page.count("below the documented minimum"), 3)
+        self.assertIn("1 hard discrepancy", page)
+        # notes are grouped by identical inputs, and every affected release is listed
+        self.assertIn("below the documented minimum 1.33: 1.21.3, 1.21.2", page)
+        self.assertIn("below the documented minimum 1.31: 1.15.1, 1.15.0", page)
 
 
 if __name__ == "__main__":

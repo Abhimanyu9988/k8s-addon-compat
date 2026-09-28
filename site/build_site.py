@@ -70,12 +70,26 @@ def addon_section(a: dict) -> str:
     links = [f'<a href="{e(a["github"])}">GitHub</a>', f'<a href="{e(a["docs"])}">compatibility docs</a>']
     if a.get("upgrade_notes"):
         links.append(f'<a href="{e(a["upgrade_notes"])}">upgrade notes</a>')
+    # "Chart allows install below the documented minimum" applies to many releases with
+    # identical inputs. Every release is evaluated; the results are grouped by distinct
+    # (constraint, documented minimum) so each combination is listed once with all its releases.
+    groups: dict = {}
+    for r in a["releases"]:
+        for n in r["notes"]:
+            if n["kind"] == "chart-allows-below-documented-minimum":
+                key = (n.get("constraint"), n.get("documented_minimum"), n.get("allows"))
+                groups.setdefault(key, []).append(r["version"])
+    grouped = "".join(
+        f'<li><code>{e(c)}</code> allows install on {e(allows)}, below the documented minimum {e(mn)}: '
+        f'{e(", ".join(vs))}</li>'
+        for (c, mn, allows), vs in groups.items())
+    grouped_html = (f'<div class="notes-block"><p class="muted">Notes (evaluated for every release, grouped '
+                    f'where the chart constraint and documented minimum are identical):</p><ul>{grouped}</ul></div>'
+                    if grouped else "")
     rows = []
-    for i, r in enumerate(a["releases"]):
+    for r in a["releases"]:
         ic = r["kubernetes"]["install_constraint"]
-        # "Chart allows install below the documented minimum" is true for most charts;
-        # show it once (newest release) instead of on every row. The data keeps all of them.
-        notes = [n for n in r["notes"] if i == 0 or n["kind"] != "chart-allows-below-documented-minimum"]
+        notes = [n for n in r["notes"] if n["kind"] != "chart-allows-below-documented-minimum"]
         chart = r["chart"]["version"] if r["chart"] else "—"
         constraint = f'<code>{e(ic["value"])}</code>' if ic and ic["value"] else '<span class="muted">none set</span>'
         issues = "".join(f'<div class="disc">⚠ {e(d["detail"])}</div>' for d in r["discrepancies"])
@@ -86,7 +100,7 @@ def addon_section(a: dict) -> str:
     return (f'<section id="{e(a["id"])}"><h3>{e(a["name"])}</h3>{status}<p class="links">{" · ".join(links)}</p>'
             '<div class="scroll"><table><thead><tr><th>Release</th><th>Published</th><th>Chart</th>'
             '<th>Chart <code>kubeVersion</code></th><th>Docs claims</th><th>Findings</th></tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table></div></section>')
+            f'<tbody>{"".join(rows)}</tbody></table></div>{grouped_html}</section>')
 
 
 CSS = """
@@ -115,6 +129,7 @@ letter-spacing:.04em;color:var(--muted);font-weight:600}
 .disc{color:var(--warn);background:var(--warn-bg);padding:4px 8px;border-radius:6px;margin-bottom:4px;font-size:13px}
 .note{color:var(--muted);font-size:13px;margin-bottom:4px}
 .retired-note{color:var(--warn)}.links{font-size:14px}
+.notes-block{font-size:13.5px;margin:8px 2px 0}.notes-block ul{margin:4px 0 0;padding-left:20px}
 code{font-size:12.5px}footer{margin-top:48px;color:var(--muted);font-size:13px}
 dl.legend{display:grid;grid-template-columns:max-content 1fr;gap:6px 12px;font-size:14px;margin:12px 0}
 dl.legend dd{margin:0;color:var(--muted)}
@@ -125,6 +140,7 @@ def render(data_dir: pathlib.Path) -> str:
     view = yaml.safe_load((data_dir / "kubernetes-view.yaml").read_text())
     addons = [yaml.safe_load((data_dir / f"{a['id']}.yaml").read_text()) for a in view["addons"]]
     n_disc = sum(len(r["discrepancies"]) for a in addons for r in a["releases"])
+    n_notes = sum(len(r["notes"]) for a in addons for r in a["releases"])
     built = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -145,7 +161,8 @@ project's own documentation or Helm chart. Nothing is inferred from silence.</p>
 </dl>
 
 <h2>By add-on</h2>
-<p class="muted">{n_disc} discrepanc{'y' if n_disc == 1 else 'ies'} between docs and Helm charts in the tracked releases.
+<p class="muted"><strong>{n_disc} hard discrepanc{'y' if n_disc == 1 else 'ies'}</strong> (the docs claim a Kubernetes
+version the Helm chart blocks) and {n_notes} informational note{'' if n_notes == 1 else 's'} across the tracked releases.
 A chart's <code>kubeVersion</code> is an install gate, not a support claim, so it's shown separately.</p>
 {"".join(addon_section(a) for a in addons)}
 
