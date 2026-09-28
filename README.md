@@ -9,6 +9,34 @@ the two disagree. Every claim links to its source.
 
 > Automation discovers changes; humans approve compatibility claims.
 
+**Live page:** https://abhimanyu9988.github.io/k8s-addon-compat/
+
+## How to read the page
+
+- **By Kubernetes version:** for each Kubernetes version, the newest tracked release
+  of each add-on whose own docs make a claim about it, and what kind of claim.
+- **By add-on:** every tracked release, its Helm chart and `kubeVersion`, the docs'
+  claims with source links, and any findings.
+- `tested` and `declared` are different claims and are never merged.
+- `not stated` means no statement was found. It does not mean incompatible.
+- **Hard discrepancy:** the docs claim a version the Helm chart refuses to install on.
+- **Notes:** informational, e.g. the chart allows installing below the documented minimum.
+
+## Data corrections and add-on requests
+
+This project does not infer Kubernetes compatibility. Every claim is taken from
+upstream project documentation or Helm chart metadata and links to its source.
+
+- If a claim is wrong or outdated, open a
+  [compatibility data correction](https://github.com/Abhimanyu9988/k8s-addon-compat/issues/new?template=data-correction.yml)
+  with the project's authoritative source. Maintainer confirmation in the issue counts.
+- To have another add-on tracked, open an
+  [add-on request](https://github.com/Abhimanyu9988/k8s-addon-compat/issues/new?template=addon-request.yml)
+  with links to its repository, chart and compatibility documentation.
+
+Automated collection discovers upstream changes, but every change to the data is
+reviewed by a person before it is merged.
+
 ## Tracked add-ons (v1)
 
 | Add-on | Compatibility source | Claim type |

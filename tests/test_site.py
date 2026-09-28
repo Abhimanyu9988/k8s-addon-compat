@@ -15,7 +15,9 @@ class Site(unittest.TestCase):
     def test_renders_view_findings_and_retired_status(self):
         with tempfile.TemporaryDirectory() as d:
             collect.main(["--fixtures", str(OFFLINE), "--out", d])
-            page = build_site.render(pathlib.Path(d))
+            page = build_site.render(pathlib.Path(d), "https://github.com/example/k8s-addon-compat")
+        self.assertIn("issues/new?template=data-correction.yml", page)
+        self.assertIn("issues/new?template=addon-request.yml", page)
         self.assertIn("By Kubernetes version", page)
         self.assertIn("chart blocks", page)
         self.assertIn("Retired:", page)

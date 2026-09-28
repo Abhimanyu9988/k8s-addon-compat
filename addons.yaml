@@ -4,6 +4,9 @@
 
 releases_per_addon: 6
 
+# Used by the site for "report a wrong claim" and "request an add-on" links.
+repository: https://github.com/Abhimanyu9988/k8s-addon-compat
+
 addons:
   - id: cert-manager
     name: cert-manager

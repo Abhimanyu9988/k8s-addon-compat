@@ -129,6 +129,7 @@ letter-spacing:.04em;color:var(--muted);font-weight:600}
 .disc{color:var(--warn);background:var(--warn-bg);padding:4px 8px;border-radius:6px;margin-bottom:4px;font-size:13px}
 .note{color:var(--muted);font-size:13px;margin-bottom:4px}
 .retired-note{color:var(--warn)}.links{font-size:14px}
+.feedback{font-size:14px;margin:0 0 8px}
 .notes-block{font-size:13.5px;margin:8px 2px 0}.notes-block ul{margin:4px 0 0;padding-left:20px}
 code{font-size:12.5px}footer{margin-top:48px;color:var(--muted);font-size:13px}
 dl.legend{display:grid;grid-template-columns:max-content 1fr;gap:6px 12px;font-size:14px;margin:12px 0}
@@ -136,7 +137,16 @@ dl.legend dd{margin:0;color:var(--muted)}
 """
 
 
-def render(data_dir: pathlib.Path) -> str:
+def feedback_links(repo: str | None) -> str:
+    if not repo:
+        return ""
+    fix = f"{repo}/issues/new?template=data-correction.yml"
+    req = f"{repo}/issues/new?template=addon-request.yml"
+    return (f'<p class="feedback">Spotted a wrong or outdated claim? <a href="{e(fix)}">Report a correction</a> '
+            f'with the upstream source. Want another add-on? <a href="{e(req)}">Request it</a>.</p>')
+
+
+def render(data_dir: pathlib.Path, repo: str | None = None) -> str:
     view = yaml.safe_load((data_dir / "kubernetes-view.yaml").read_text())
     addons = [yaml.safe_load((data_dir / f"{a['id']}.yaml").read_text()) for a in view["addons"]]
     n_disc = sum(len(r["discrepancies"]) for a in addons for r in a["releases"])
@@ -149,6 +159,7 @@ def render(data_dir: pathlib.Path) -> str:
 <p class="lede">Can I upgrade my Kubernetes cluster without breaking the add-ons I run?</p>
 <p class="principle">Automation discovers changes; humans approve compatibility claims. Every claim below links to the
 project's own documentation or Helm chart. Nothing is inferred from silence.</p>
+{feedback_links(repo)}
 
 <h2>By Kubernetes version</h2>
 <p class="muted">For each version: the newest tracked release whose docs make a claim about it.</p>
@@ -166,7 +177,8 @@ version the Helm chart blocks) and {n_notes} informational note{'' if n_notes ==
 A chart's <code>kubeVersion</code> is an install gate, not a support claim, so it's shown separately.</p>
 {"".join(addon_section(a) for a in addons)}
 
-<footer>Page built {built}. Data is refreshed daily by a GitHub Action that opens a pull request for review.</footer>
+<footer>Page built {built}. Data is refreshed daily by a GitHub Action that opens a pull request for review.
+{f'<a href="{e(repo)}">Source and data on GitHub</a>.' if repo else ''}</footer>
 </main></body></html>"""
 
 
@@ -177,7 +189,8 @@ def main():
     args = ap.parse_args()
     out = pathlib.Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(render(pathlib.Path(args.data)))
+    cfg = yaml.safe_load((ROOT / "addons.yaml").read_text())
+    (out / "index.html").write_text(render(pathlib.Path(args.data), cfg.get("repository")))
     print(f"Wrote {out / 'index.html'}")
 
 

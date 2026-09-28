@@ -1,0 +1,39 @@
+name: Request an add-on
+description: Suggest another Kubernetes add-on to track.
+title: "[add-on] <project name>"
+labels: ["addon-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        An add-on can be tracked when the project publishes its own Kubernetes compatibility
+        or support information. Links make this much faster to add.
+  - type: input
+    id: name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      placeholder: https://github.com/org/project
+    validations:
+      required: true
+  - type: input
+    id: chart
+    attributes:
+      label: Helm chart or chart repository
+      placeholder: "e.g. https://charts.example.io (chart: example)"
+  - type: input
+    id: docs
+    attributes:
+      label: Official Kubernetes compatibility documentation
+      description: The page or file where the project states which Kubernetes versions it supports or tests.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it would be useful to track

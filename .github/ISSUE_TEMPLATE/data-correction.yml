@@ -1,0 +1,66 @@
+name: Compatibility data correction
+description: A compatibility claim, chart mapping or lifecycle status is wrong or outdated.
+title: "[data] <add-on>: <what is wrong>"
+labels: ["data-correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. This project records what each add-on's own documentation and Helm chart say.
+        It never infers compatibility, so a correction needs an authoritative upstream source.
+  - type: dropdown
+    id: addon
+    attributes:
+      label: Add-on
+      options:
+        - cert-manager
+        - OpenTelemetry Operator
+        - ingress-nginx
+        - metrics-server
+        - Other (say which in the details)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Release and/or chart version
+      placeholder: "e.g. cert-manager 1.21.2, chart v1.21.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: What does the report concern?
+      description: The tracker keeps these separate on purpose.
+      options:
+        - Declared support (the versions the project says it supports)
+        - Tested versions (the versions the project says it tested)
+        - Helm kubeVersion install constraint (what Helm allows, not a support claim)
+        - Release ↔ chart version mapping
+        - Project lifecycle status (e.g. active, retired)
+    validations:
+      required: true
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: What appears incorrect
+      description: What the tracker currently shows.
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: Correct information
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL
+      description: Project docs, release notes, Chart.yaml or Helm index. Maintainer confirmation in this thread also counts.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context (optional)
