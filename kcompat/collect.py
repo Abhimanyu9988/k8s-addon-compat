@@ -271,6 +271,8 @@ def main(argv=None) -> int:
     ap.add_argument("--config", default=str(ROOT / "addons.yaml"))
     ap.add_argument("--out", default=str(ROOT / "data"))
     ap.add_argument("--fixtures", help="offline mode: read sources from this folder")
+    ap.add_argument("--strict", action="store_true",
+                    help="exit non-zero on any warning (used by the daily job so format changes alert you)")
     args = ap.parse_args(argv)
 
     cfg = yaml.safe_load(pathlib.Path(args.config).read_text())
@@ -306,6 +308,9 @@ def main(argv=None) -> int:
           f"{n_hard} discrepancies.")
     for w in warnings:
         print(f"WARNING: {w}", file=sys.stderr)
+    if args.strict and warnings:
+        print(f"Strict mode: {len(warnings)} warning(s), failing the run.", file=sys.stderr)
+        return 1
     return 1 if any("FAILED" in w for w in warnings) else 0
 
 

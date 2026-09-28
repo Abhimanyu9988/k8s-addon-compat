@@ -25,7 +25,7 @@ jobs:
       - name: Collect evidence
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python -m kcompat.collect
+        run: python -m kcompat.collect --strict
       - name: Open a PR if the evidence changed
         uses: peter-evans/create-pull-request@v7
         with:

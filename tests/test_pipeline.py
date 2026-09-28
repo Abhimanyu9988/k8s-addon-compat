@@ -51,6 +51,15 @@ class Pipeline(unittest.TestCase):
         ms = next(a for a in view["addons"] if a["id"] == "metrics-server")
         self.assertEqual(ms["by_kubernetes"]["1.36"]["version"], "0.8.1")
 
+    def test_strict_fails_when_a_parser_finds_nothing(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as out:
+            broken = pathlib.Path(d) / "offline"
+            shutil.copytree(OFFLINE, broken)
+            (broken / "metrics-server" / "docs.md").write_text("# format changed\nno table here\n")
+            self.assertEqual(collect.main(["--fixtures", str(broken), "--out", out]), 0)
+            self.assertEqual(collect.main(["--fixtures", str(broken), "--out", out, "--strict"]), 1)
+
     def test_no_timestamps_in_output(self):
         text = (self.out / "cert-manager.yaml").read_text()
         self.assertNotIn("fetched", text)
