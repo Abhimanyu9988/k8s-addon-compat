@@ -1,0 +1,46 @@
+name: Refresh compatibility data
+
+# Daily: re-collect evidence. If anything changed, open (or update) one PR.
+# A human reviews every changed claim against its source link before merging.
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Tests (parsers must still match the real doc formats)
+        run: python -m unittest discover -s tests -t .
+      - name: Collect evidence
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m kcompat.collect
+      - name: Open a PR if the evidence changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automated/refresh-data
+          delete-branch: true
+          add-paths: data/
+          commit-message: "data: refresh compatibility evidence"
+          title: "Data refresh: compatibility evidence changed"
+          labels: data-refresh
+          body: |
+            The daily collector found changes in upstream releases, Helm chart metadata or compatibility docs.
+
+            Before merging, check each changed claim against the source link in the diff:
+            - [ ] New or changed Kubernetes claims match the project's docs
+            - [ ] Any new `discrepancies` entry is real (open the chart index and the docs)
+            - [ ] Status changes (e.g. retired) are confirmed on the project's own page
+
+            Automation discovers changes; humans approve compatibility claims.

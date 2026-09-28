@@ -1,0 +1,60 @@
+# Add-ons tracked by the project. Every URL here is an evidence source that ends
+# up linked from the site. Adding an add-on = one entry here + one parser in
+# kcompat/docs_parsers.py + a fixture test.
+
+releases_per_addon: 6
+
+addons:
+  - id: cert-manager
+    name: cert-manager
+    github: cert-manager/cert-manager
+    tag_pattern: '^v(\d+\.\d+\.\d+)$'
+    helm:
+      index: https://charts.jetstack.io/index.yaml
+      chart: cert-manager
+    docs:
+      parser: cert-manager
+      raw: https://raw.githubusercontent.com/cert-manager/website/master/content/docs/releases/README.md
+      url: https://cert-manager.io/docs/releases/
+    upgrade_notes: https://cert-manager.io/docs/releases/upgrading/
+
+  - id: opentelemetry-operator
+    name: OpenTelemetry Operator
+    github: open-telemetry/opentelemetry-operator
+    tag_pattern: '^v(\d+\.\d+\.\d+)$'
+    helm:
+      index: https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+      chart: opentelemetry-operator
+    docs:
+      parser: otel-operator
+      raw: https://raw.githubusercontent.com/open-telemetry/opentelemetry-operator/main/docs/getting-started/compatibility.md
+      url: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    upgrade_notes: https://github.com/open-telemetry/opentelemetry-operator/blob/main/CHANGELOG.md
+
+  - id: ingress-nginx
+    name: ingress-nginx
+    github: kubernetes/ingress-nginx
+    tag_pattern: '^controller-v(\d+\.\d+\.\d+)$'
+    helm:
+      index: https://kubernetes.github.io/ingress-nginx/index.yaml
+      chart: ingress-nginx
+    docs:
+      parser: ingress-nginx
+      raw: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/README.md
+      url: https://github.com/kubernetes/ingress-nginx#supported-versions-table
+    status_from_readme: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/README.md
+    status_url: https://github.com/kubernetes/ingress-nginx#ingress-nginx-retirement
+
+  - id: metrics-server
+    name: metrics-server
+    github: kubernetes-sigs/metrics-server
+    tag_pattern: '^v(\d+\.\d+\.\d+)$'
+    helm:
+      index: https://kubernetes-sigs.github.io/metrics-server/index.yaml
+      chart: metrics-server
+    docs:
+      parser: metrics-server
+      raw: https://raw.githubusercontent.com/kubernetes-sigs/metrics-server/master/README.md
+      url: https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix
+    status_from_readme: https://raw.githubusercontent.com/kubernetes-sigs/metrics-server/master/README.md
+    status_url: https://github.com/kubernetes-sigs/metrics-server

@@ -1,0 +1,212 @@
+id: opentelemetry-operator
+name: OpenTelemetry Operator
+github: https://github.com/open-telemetry/opentelemetry-operator
+status:
+  state: active
+docs: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+upgrade_notes: https://github.com/open-telemetry/opentelemetry-operator/blob/main/CHANGELOG.md
+releases:
+- version: 0.159.0
+  tag: v0.159.0
+  published: '2026-09-14'
+  release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.159.0
+  chart:
+    name: opentelemetry-operator
+    version: 0.123.1
+    app_version: 0.159.0
+  kubernetes:
+    install_constraint:
+      value: null
+      parsed: false
+      source: https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+    claims:
+    - claim_type: declared-supported
+      expression: v1.25 to v1.36
+      versions:
+      - '1.25'
+      - '1.26'
+      - '1.27'
+      - '1.28'
+      - '1.29'
+      - '1.30'
+      - '1.31'
+      - '1.32'
+      - '1.33'
+      - '1.34'
+      - '1.35'
+      - '1.36'
+      open_from: null
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    docs_row: 0.159.0
+    docs_extra: null
+  discrepancies: []
+  notes: []
+- version: 0.158.0
+  tag: v0.158.0
+  published: '2026-08-17'
+  release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.158.0
+  chart:
+    name: opentelemetry-operator
+    version: 0.122.1
+    app_version: 0.158.0
+  kubernetes:
+    install_constraint:
+      value: null
+      parsed: false
+      source: https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+    claims:
+    - claim_type: declared-supported
+      expression: v1.25 to v1.36
+      versions:
+      - '1.25'
+      - '1.26'
+      - '1.27'
+      - '1.28'
+      - '1.29'
+      - '1.30'
+      - '1.31'
+      - '1.32'
+      - '1.33'
+      - '1.34'
+      - '1.35'
+      - '1.36'
+      open_from: null
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    docs_row: 0.158.0
+    docs_extra: null
+  discrepancies: []
+  notes: []
+- version: 0.157.0
+  tag: v0.157.0
+  published: '2026-08-13'
+  release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.157.0
+  chart:
+    name: opentelemetry-operator
+    version: 0.121.0
+    app_version: 0.157.0
+  kubernetes:
+    install_constraint:
+      value: null
+      parsed: false
+      source: https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+    claims:
+    - claim_type: declared-supported
+      expression: v1.25 to v1.36
+      versions:
+      - '1.25'
+      - '1.26'
+      - '1.27'
+      - '1.28'
+      - '1.29'
+      - '1.30'
+      - '1.31'
+      - '1.32'
+      - '1.33'
+      - '1.34'
+      - '1.35'
+      - '1.36'
+      open_from: null
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    docs_row: 0.157.0
+    docs_extra: null
+  discrepancies: []
+  notes: []
+- version: 0.156.0
+  tag: v0.156.0
+  published: '2026-07-14'
+  release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.156.0
+  chart:
+    name: opentelemetry-operator
+    version: 0.120.3
+    app_version: 0.156.0
+  kubernetes:
+    install_constraint:
+      value: null
+      parsed: false
+      source: https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+    claims:
+    - claim_type: declared-supported
+      expression: v1.25 to v1.35
+      versions:
+      - '1.25'
+      - '1.26'
+      - '1.27'
+      - '1.28'
+      - '1.29'
+      - '1.30'
+      - '1.31'
+      - '1.32'
+      - '1.33'
+      - '1.34'
+      - '1.35'
+      open_from: null
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    docs_row: 0.156.0
+    docs_extra: null
+  discrepancies: []
+  notes: []
+- version: 0.155.0
+  tag: v0.155.0
+  published: '2026-07-13'
+  release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.155.0
+  chart: null
+  kubernetes:
+    install_constraint: null
+    claims:
+    - claim_type: declared-supported
+      expression: v1.25 to v1.35
+      versions:
+      - '1.25'
+      - '1.26'
+      - '1.27'
+      - '1.28'
+      - '1.29'
+      - '1.30'
+      - '1.31'
+      - '1.32'
+      - '1.33'
+      - '1.34'
+      - '1.35'
+      open_from: null
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    docs_row: 0.155.0
+    docs_extra: null
+  discrepancies: []
+  notes:
+  - kind: no-chart-for-app-version
+    detail: No chart in https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+      has appVersion 0.155.0.
+- version: 0.154.0
+  tag: v0.154.0
+  published: '2026-07-02'
+  release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.154.0
+  chart:
+    name: opentelemetry-operator
+    version: 0.119.0
+    app_version: 0.154.0
+  kubernetes:
+    install_constraint:
+      value: null
+      parsed: false
+      source: https://open-telemetry.github.io/opentelemetry-helm-charts/index.yaml
+    claims:
+    - claim_type: declared-supported
+      expression: v1.25 to v1.35
+      versions:
+      - '1.25'
+      - '1.26'
+      - '1.27'
+      - '1.28'
+      - '1.29'
+      - '1.30'
+      - '1.31'
+      - '1.32'
+      - '1.33'
+      - '1.34'
+      - '1.35'
+      open_from: null
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+    docs_row: 0.154.0
+    docs_extra: null
+  discrepancies: []
+  notes: []

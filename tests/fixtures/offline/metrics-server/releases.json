@@ -1,0 +1,30 @@
+[
+ {
+  "tag_name": "v0.8.1",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-09-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/metrics-server/releases/tag/v0.8.1"
+ },
+ {
+  "tag_name": "v0.8.0",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-08-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/metrics-server/releases/tag/v0.8.0"
+ },
+ {
+  "tag_name": "v0.7.2",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-07-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/metrics-server/releases/tag/v0.7.2"
+ },
+ {
+  "tag_name": "v9.9.9-rc.1",
+  "draft": false,
+  "prerelease": true,
+  "published_at": "2026-09-20T00:00:00Z",
+  "html_url": "x"
+ }
+]

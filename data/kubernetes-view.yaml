@@ -1,0 +1,164 @@
+kubernetes_versions:
+- '1.36'
+- '1.35'
+- '1.34'
+- '1.33'
+- '1.32'
+addons:
+- id: cert-manager
+  name: cert-manager
+  status: active
+  by_kubernetes:
+    '1.36':
+      version: 1.21.2
+      claim_types:
+      - declared-supported
+      - tested
+      source: https://cert-manager.io/docs/releases/
+      chart_allows_install: true
+      discrepancy: false
+    '1.35':
+      version: 1.21.2
+      claim_types:
+      - declared-supported
+      - tested
+      source: https://cert-manager.io/docs/releases/
+      chart_allows_install: true
+      discrepancy: false
+    '1.34':
+      version: 1.21.2
+      claim_types:
+      - declared-supported
+      - tested
+      source: https://cert-manager.io/docs/releases/
+      chart_allows_install: true
+      discrepancy: false
+    '1.33':
+      version: 1.21.2
+      claim_types:
+      - declared-supported
+      - tested
+      source: https://cert-manager.io/docs/releases/
+      chart_allows_install: true
+      discrepancy: false
+    '1.32':
+      version: 1.20.4
+      claim_types:
+      - declared-supported
+      - tested
+      source: https://cert-manager.io/docs/releases/
+      chart_allows_install: true
+      discrepancy: false
+- id: opentelemetry-operator
+  name: OpenTelemetry Operator
+  status: active
+  by_kubernetes:
+    '1.36':
+      version: 0.159.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+      chart_allows_install: null
+      discrepancy: false
+    '1.35':
+      version: 0.159.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+      chart_allows_install: null
+      discrepancy: false
+    '1.34':
+      version: 0.159.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+      chart_allows_install: null
+      discrepancy: false
+    '1.33':
+      version: 0.159.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+      chart_allows_install: null
+      discrepancy: false
+    '1.32':
+      version: 0.159.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
+      chart_allows_install: null
+      discrepancy: false
+- id: ingress-nginx
+  name: ingress-nginx
+  status: retired
+  by_kubernetes:
+    '1.36':
+      claim_types:
+      - not-stated
+    '1.35':
+      version: 1.15.1
+      claim_types:
+      - tested
+      source: https://github.com/kubernetes/ingress-nginx#supported-versions-table
+      chart_allows_install: true
+      discrepancy: false
+    '1.34':
+      version: 1.15.1
+      claim_types:
+      - tested
+      source: https://github.com/kubernetes/ingress-nginx#supported-versions-table
+      chart_allows_install: true
+      discrepancy: false
+    '1.33':
+      version: 1.15.1
+      claim_types:
+      - tested
+      source: https://github.com/kubernetes/ingress-nginx#supported-versions-table
+      chart_allows_install: true
+      discrepancy: false
+    '1.32':
+      version: 1.15.1
+      claim_types:
+      - tested
+      source: https://github.com/kubernetes/ingress-nginx#supported-versions-table
+      chart_allows_install: true
+      discrepancy: false
+- id: metrics-server
+  name: metrics-server
+  status: active
+  by_kubernetes:
+    '1.36':
+      version: 0.9.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix
+      chart_allows_install: null
+      discrepancy: false
+    '1.35':
+      version: 0.9.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix
+      chart_allows_install: null
+      discrepancy: false
+    '1.34':
+      version: 0.9.0
+      claim_types:
+      - declared-supported
+      source: https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix
+      chart_allows_install: null
+      discrepancy: false
+    '1.33':
+      version: 0.8.1
+      claim_types:
+      - declared-supported
+      source: https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix
+      chart_allows_install: null
+      discrepancy: false
+    '1.32':
+      version: 0.8.1
+      claim_types:
+      - declared-supported
+      source: https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix
+      chart_allows_install: null
+      discrepancy: false

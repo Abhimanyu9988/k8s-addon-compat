@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  opentelemetry-operator:
+  - appVersion: 0.159.0
+    kubeVersion: '>=1.25.0-0 <1.36.0-0'
+    version: 0.123.0
+  - appVersion: 0.158.0
+    kubeVersion: '>=1.25.0-0'
+    version: 0.122.0
+  - appVersion: 0.157.0
+    kubeVersion: '>=1.25.0-0'
+    version: 0.121.0
+  - appVersion: 0.156.0
+    kubeVersion: '>=1.25.0-0'
+    version: 0.120.0

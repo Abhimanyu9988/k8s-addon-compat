@@ -1,0 +1,37 @@
+[
+ {
+  "tag_name": "controller-v1.15.1",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-09-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/ingress-nginx/releases/tag/controller-v1.15.1"
+ },
+ {
+  "tag_name": "controller-v1.15.0",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-08-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/ingress-nginx/releases/tag/controller-v1.15.0"
+ },
+ {
+  "tag_name": "controller-v1.14.5",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-07-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/ingress-nginx/releases/tag/controller-v1.14.5"
+ },
+ {
+  "tag_name": "controller-v9.9.9-rc.1",
+  "draft": false,
+  "prerelease": true,
+  "published_at": "2026-09-20T00:00:00Z",
+  "html_url": "x"
+ },
+ {
+  "tag_name": "helm-chart-4.15.1",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-09-01T00:00:00Z",
+  "html_url": "x"
+ }
+]

@@ -1,0 +1,37 @@
+[
+ {
+  "tag_name": "v0.159.0",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-09-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/opentelemetry-operator/releases/tag/v0.159.0"
+ },
+ {
+  "tag_name": "v0.158.0",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-08-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/opentelemetry-operator/releases/tag/v0.158.0"
+ },
+ {
+  "tag_name": "v0.157.0",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-07-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/opentelemetry-operator/releases/tag/v0.157.0"
+ },
+ {
+  "tag_name": "v0.156.0",
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-06-15T10:00:00Z",
+  "html_url": "https://github.com/SYNTHETIC/opentelemetry-operator/releases/tag/v0.156.0"
+ },
+ {
+  "tag_name": "v9.9.9-rc.1",
+  "draft": false,
+  "prerelease": true,
+  "published_at": "2026-09-20T00:00:00Z",
+  "html_url": "x"
+ }
+]
