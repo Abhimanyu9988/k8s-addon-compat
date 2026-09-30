@@ -22,11 +22,11 @@ releases:
       parsed: true
       source: https://kubernetes.github.io/ingress-nginx/index.yaml
       allows:
+        '1.37': true
         '1.36': true
         '1.35': true
         '1.34': true
         '1.33': true
-        '1.32': true
     claims:
     - claim_type: tested
       expression: 1.35, 1.34, 1.33, 1.32, 1.31
@@ -63,11 +63,11 @@ releases:
       parsed: true
       source: https://kubernetes.github.io/ingress-nginx/index.yaml
       allows:
+        '1.37': true
         '1.36': true
         '1.35': true
         '1.34': true
         '1.33': true
-        '1.32': true
     claims:
     - claim_type: tested
       expression: 1.35, 1.34, 1.33, 1.32, 1.31
@@ -104,11 +104,11 @@ releases:
       parsed: true
       source: https://kubernetes.github.io/ingress-nginx/index.yaml
       allows:
+        '1.37': true
         '1.36': true
         '1.35': true
         '1.34': true
         '1.33': true
-        '1.32': true
     claims:
     - claim_type: tested
       expression: 1.34, 1.33, 1.32, 1.31, 1.30
@@ -145,11 +145,11 @@ releases:
       parsed: true
       source: https://kubernetes.github.io/ingress-nginx/index.yaml
       allows:
+        '1.37': true
         '1.36': true
         '1.35': true
         '1.34': true
         '1.33': true
-        '1.32': true
     claims:
     - claim_type: tested
       expression: 1.34, 1.33, 1.32, 1.31, 1.30
@@ -186,11 +186,11 @@ releases:
       parsed: true
       source: https://kubernetes.github.io/ingress-nginx/index.yaml
       allows:
+        '1.37': true
         '1.36': true
         '1.35': true
         '1.34': true
         '1.33': true
-        '1.32': true
     claims:
     - claim_type: tested
       expression: 1.34, 1.33, 1.32, 1.31, 1.30
@@ -227,11 +227,11 @@ releases:
       parsed: true
       source: https://kubernetes.github.io/ingress-nginx/index.yaml
       allows:
+        '1.37': true
         '1.36': true
         '1.35': true
         '1.34': true
         '1.33': true
-        '1.32': true
     claims:
     - claim_type: tested
       expression: 1.34, 1.33, 1.32, 1.31, 1.30
