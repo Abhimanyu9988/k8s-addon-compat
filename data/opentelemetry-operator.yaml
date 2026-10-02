@@ -12,7 +12,7 @@ releases:
   release_notes: https://github.com/open-telemetry/opentelemetry-operator/releases/tag/v0.160.0
   chart:
     name: opentelemetry-operator
-    version: 0.124.0
+    version: 0.124.1
     app_version: 0.160.0
   kubernetes:
     install_constraint:
