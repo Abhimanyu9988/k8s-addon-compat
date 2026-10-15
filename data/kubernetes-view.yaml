@@ -49,35 +49,35 @@ addons:
   status: active
   by_kubernetes:
     '1.37':
-      version: 0.160.0
+      version: 0.161.0
       claim_types:
       - declared-supported
       source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
       chart_allows_install: null
       discrepancy: false
     '1.36':
-      version: 0.160.0
+      version: 0.161.0
       claim_types:
       - declared-supported
       source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
       chart_allows_install: null
       discrepancy: false
     '1.35':
-      version: 0.160.0
+      version: 0.161.0
       claim_types:
       - declared-supported
       source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
       chart_allows_install: null
       discrepancy: false
     '1.34':
-      version: 0.160.0
+      version: 0.161.0
       claim_types:
       - declared-supported
       source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
       chart_allows_install: null
       discrepancy: false
     '1.33':
-      version: 0.160.0
+      version: 0.161.0
       claim_types:
       - declared-supported
       source: https://github.com/open-telemetry/opentelemetry-operator/blob/main/docs/getting-started/compatibility.md
