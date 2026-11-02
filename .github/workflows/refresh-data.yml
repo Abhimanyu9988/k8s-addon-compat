@@ -35,6 +35,7 @@ jobs:
           commit-message: "data: refresh compatibility evidence"
           title: "Data refresh: compatibility evidence changed"
           labels: data-refresh
+          assignees: Abhimanyu9988
           body: |
             The daily collector found changes in upstream releases, Helm chart metadata or compatibility docs.
 
